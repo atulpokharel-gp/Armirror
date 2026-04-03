@@ -42,7 +42,6 @@ function deriveBodyShape(m: BodyMeasurements): string {
   const waist = m.waist ?? 70;
   const hip = m.hip ?? 95;
   const waistToHip = waist / hip;
-  const chestToHip = chest / hip;
 
   if (waistToHip < 0.75 && Math.abs(chest - hip) < 5) return "hourglass";
   if (hip > chest + 5) return "pear";
@@ -53,7 +52,7 @@ function deriveBodyShape(m: BodyMeasurements): string {
 
 export function getSizeRecommendation(
   measurements: BodyMeasurements,
-  brand: string
+  _brand: string
 ): { top: string; bottom: string; dress: string } {
   const chest = measurements.chest ?? 88;
   const waist = measurements.waist ?? 70;

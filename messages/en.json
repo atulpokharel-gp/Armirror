@@ -1,0 +1,215 @@
+{
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "signIn": "Sign in",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "AI-Powered Fashion Try-On",
+    "title": "Try On Fashion",
+    "titleAccent": "Before You Buy",
+    "description": "StyleMirror AR uses AI to create your personalized body model, analyze your skin tone, and let you virtually try on thousands of garments in augmented reality.",
+    "ctaPrimary": "Start for Free",
+    "ctaSecondary": "Live Demo",
+    "socialProof": {
+      "users": "50k+ users",
+      "rating": "4.9/5 rating"
+    }
+  },
+  "features": {
+    "heading": "Fashion intelligence",
+    "headingAccent": "powered by AI",
+    "subheading": "Every feature is designed to make your fashion choices smarter, faster, and more personal.",
+    "items": {
+      "arTryon": {
+        "title": "AR Virtual Try-On",
+        "description": "See exactly how garments look on your body using WebXR augmented reality."
+      },
+      "familyProfiles": {
+        "title": "Family Profiles",
+        "description": "Create style profiles for everyone in your family with individual measurements and preferences."
+      },
+      "colorAnalysis": {
+        "title": "Color Analysis",
+        "description": "AI analyzes your skin tone to recommend the most flattering color palettes."
+      },
+      "smartRecs": {
+        "title": "Smart Recommendations",
+        "description": "Personalized outfit suggestions based on your body shape, style preferences, and occasion."
+      },
+      "bodyModeling": {
+        "title": "Body Modeling",
+        "description": "Upload photos to generate an accurate 3D body model for precise virtual try-ons."
+      },
+      "priceComparison": {
+        "title": "Price Comparison",
+        "description": "Find the best prices across hundreds of stores in real-time."
+      }
+    },
+    "badges": {
+      "aiVisualization": "AI Visualization",
+      "aiEstimated": "AI Estimated"
+    }
+  },
+  "howItWorks": {
+    "heading": "How StyleMirror Works",
+    "subheading": "Three simple steps to your perfect wardrobe",
+    "steps": {
+      "step1": {
+        "title": "Create Your Profile",
+        "description": "Upload photos to generate your AI body model and get your color analysis done in seconds."
+      },
+      "step2": {
+        "title": "Browse & Try On",
+        "description": "Explore thousands of garments and instantly see how they look on your body model via AR."
+      },
+      "step3": {
+        "title": "Shop Confidently",
+        "description": "Get personalized recommendations, compare prices, and buy knowing exactly how it'll fit."
+      }
+    }
+  },
+  "cta": {
+    "heading": "Ready to revolutionize your wardrobe?",
+    "subheading": "Join 50,000+ fashion-forward shoppers using StyleMirror AR.",
+    "button": "Start Free Today"
+  },
+  "footer": {
+    "copyright": "© 2024 StyleMirror AR. All rights reserved.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "features": "Features"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "StyleMirror AR – AI Fashion Try-On",
+      "description": "Try clothes in augmented reality with AI-powered body modeling and personalized style recommendations."
+    },
+    "features": {
+      "title": "Features – StyleMirror AR",
+      "description": "Explore AI try-on, body modeling, color analysis, family profiles, and smart recommendations."
+    },
+    "privacy": {
+      "title": "Privacy Policy – StyleMirror AR",
+      "description": "How StyleMirror AR collects, uses, and protects your personal data."
+    },
+    "terms": {
+      "title": "Terms of Service – StyleMirror AR",
+      "description": "Terms and conditions for using the StyleMirror AR platform."
+    }
+  },
+  "featuresPage": {
+    "hero": {
+      "badge": "Full Feature Set",
+      "title": "Everything you need to",
+      "titleAccent": "dress with confidence",
+      "description": "StyleMirror AR brings together cutting-edge AI and augmented reality to transform the way you discover, try on, and buy fashion."
+    },
+    "sections": {
+      "tryOn": {
+        "label": "Virtual Try-On",
+        "title": "See it on you before you buy",
+        "description": "Our IDM-VTON model renders garments on your exact body shape and skin tone, producing photorealistic results in seconds.",
+        "points": [
+          "Powered by IDM-VTON (state-of-the-art try-on AI)",
+          "Works with any product image",
+          "Generates video previews for motion realism",
+          "Accurate fit labels: tight, regular, or loose"
+        ]
+      },
+      "bodyModel": {
+        "label": "Body Modeling",
+        "title": "Your personal 3D avatar",
+        "description": "Upload two photos and let our AI compute your precise measurements — height, chest, waist, hips, inseam, and shoe size.",
+        "points": [
+          "Privacy-first: photos never stored without consent",
+          "Measurements auto-populate your size profile",
+          "Works for all body shapes",
+          "Confirm or correct AI estimates at any time"
+        ]
+      },
+      "colorAnalysis": {
+        "label": "Color Analysis",
+        "title": "Colors that make you shine",
+        "description": "We detect your skin tone (hex) and undertone (warm, cool, neutral) to curate palettes that flatter you — and filter out shades that clash.",
+        "points": [
+          "Warm, cool, and neutral undertone detection",
+          "Personalized color palette per family member",
+          "Automatic filtering of avoid-colors in recommendations",
+          "Brand-curated seasonal looks"
+        ]
+      },
+      "familyProfiles": {
+        "label": "Family Profiles",
+        "title": "Style for everyone, in one place",
+        "description": "Add family members — spouse, kids, parents — each with their own measurements, preferences, and wardrobe.",
+        "points": [
+          "Roles: admin, member",
+          "Relations: me, husband, wife, son, daughter, mother, father",
+          "Individual avatars and style tags per member",
+          "Shared subscription, separate profiles"
+        ]
+      }
+    }
+  },
+  "privacyPage": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 1, 2025",
+    "sections": {
+      "dataCollected": {
+        "heading": "1. Data We Collect",
+        "body": "We collect information you provide directly (name, email, family profiles, measurements) and information generated by your use of the platform (wardrobe items, try-on results, wear events). Biometric data such as face and body photos are processed only with your explicit consent and are never stored permanently without your permission."
+      },
+      "howWeUse": {
+        "heading": "2. How We Use Your Data",
+        "body": "Your data is used exclusively to provide and improve StyleMirror AR services: generating body models, running virtual try-ons, providing style recommendations, and sending notifications you have opted into. We do not sell personal data to third parties."
+      },
+      "dataSecurity": {
+        "heading": "3. Data Security",
+        "body": "All data is encrypted at rest and in transit. Authentication uses industry-standard JWT with RS256. Sensitive biometric data is governed by explicit consent records stored in our database. You may revoke consent and request deletion at any time."
+      },
+      "yourRights": {
+        "heading": "4. Your Rights",
+        "body": "You have the right to access, correct, export, and delete your personal data. Submit a request to privacy@stylemirror.ai. We will respond within 30 days."
+      },
+      "contact": {
+        "heading": "5. Contact",
+        "body": "For privacy questions, contact us at privacy@stylemirror.ai."
+      }
+    }
+  },
+  "termsPage": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: January 1, 2025",
+    "sections": {
+      "acceptance": {
+        "heading": "1. Acceptance of Terms",
+        "body": "By accessing or using StyleMirror AR, you agree to be bound by these Terms of Service. If you do not agree, do not use the platform."
+      },
+      "license": {
+        "heading": "2. License",
+        "body": "StyleMirror AR grants you a limited, non-exclusive, non-transferable license to access and use the platform for personal, non-commercial purposes. All intellectual property rights in the platform remain with StyleMirror AR."
+      },
+      "userContent": {
+        "heading": "3. User Content",
+        "body": "You retain ownership of content you upload. By uploading, you grant StyleMirror AR a license to use that content solely to provide the service. You are responsible for ensuring you have the right to upload any content."
+      },
+      "prohibited": {
+        "heading": "4. Prohibited Conduct",
+        "body": "You may not: use the platform for illegal purposes, attempt to reverse-engineer our AI models, upload content belonging to others without permission, or use automated scraping without written consent."
+      },
+      "limitation": {
+        "heading": "5. Limitation of Liability",
+        "body": "StyleMirror AR is provided 'as is'. To the maximum extent permitted by law, we disclaim all warranties and limit our liability to the amount you paid us in the past 12 months."
+      },
+      "contact": {
+        "heading": "6. Contact",
+        "body": "Legal inquiries: legal@stylemirror.ai."
+      }
+    }
+  }
+}

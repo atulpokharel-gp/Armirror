@@ -30,8 +30,8 @@ export function useCreateProfile() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: createProfile,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["profiles"] });
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["profiles"] });
     },
   });
 }

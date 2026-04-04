@@ -25,7 +25,7 @@ const TRYON_RESULT_IMAGES = [
   "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600",
 ];
 
-export async function generateTryonImage(request: TryonRequest): Promise<TryonResult> {
+export async function generateTryonImage(_request: TryonRequest): Promise<TryonResult> {
   // In production: calls a diffusion model API (Replicate / HuggingFace)
   // with inpainting to overlay the garment onto the body model.
   // The body model landmarks guide garment warping and perspective.
@@ -49,7 +49,7 @@ export async function generateTryonImage(request: TryonRequest): Promise<TryonRe
 
 export async function generateTryonVideo(
   tryonImageUrl: string,
-  style: "runway" | "casual" | "360"
+  _style: "runway" | "casual" | "360"
 ): Promise<{ videoUrl: string; status: string }> {
   // In production: calls video generation API (Runway ML / Stable Video Diffusion)
   await new Promise((r) => setTimeout(r, 3000));

@@ -26,6 +26,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(result, { status: 201 });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("POST /api/tryon error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }

@@ -8,7 +8,7 @@ export interface ColorAnalysis {
   seasonalPalette: Record<string, string[]>;
 }
 
-export async function analyzeColorPalette(imageUrl: string): Promise<ColorAnalysis> {
+export async function analyzeColorPalette(_imageUrl: string): Promise<ColorAnalysis> {
   // In production: calls computer vision API (Google Vision / custom CNN)
   // to extract dominant skin tone hex values, then classifies undertone.
   await new Promise((r) => setTimeout(r, 1200));

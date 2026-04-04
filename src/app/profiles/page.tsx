@@ -3,7 +3,7 @@ import Link from "next/link";
 import { DashboardLayout } from "@/components/layout/dashboard-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Plus, User, Edit, Trash2, Camera, Sparkles } from "lucide-react";
+import { Plus, Edit, Trash2, Camera, Sparkles } from "lucide-react";
 import { getInitials } from "@/lib/utils";
 
 const MOCK_PROFILES = [

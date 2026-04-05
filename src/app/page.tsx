@@ -110,6 +110,32 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Story */}
+      <section aria-labelledby="story-heading" className="py-20 px-6 max-w-6xl mx-auto">
+        <div className="glass-card rounded-3xl p-8 md:p-12">
+          <div className="text-center mb-12">
+            <span className="ai-badge mb-4 inline-flex">{t('story.badge')}</span>
+            <h2 id="story-heading" className="text-3xl md:text-5xl font-bold mb-4">
+              {t('story.heading')}
+            </h2>
+            <p className="text-white/70 max-w-3xl mx-auto text-lg leading-relaxed">
+              {t('story.description')}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <article className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-xl font-semibold mb-3">{t('story.problemTitle')}</h3>
+              <p className="text-white/65 leading-relaxed">{t('story.problemDescription')}</p>
+            </article>
+            <article className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-xl font-semibold mb-3">{t('story.solutionTitle')}</h3>
+              <p className="text-white/65 leading-relaxed">{t('story.solutionDescription')}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section
         id="features"

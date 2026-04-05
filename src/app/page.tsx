@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { FormEvent, useState } from 'react'
 import {
   ArrowRight,
   Sparkles,
@@ -14,6 +17,19 @@ import {
 } from 'lucide-react'
 
 export default function LandingPage() {
+  const [waitlistSuccess, setWaitlistSuccess] = useState(false)
+  const [contactSuccess, setContactSuccess] = useState(false)
+
+  const handleWaitlistSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setWaitlistSuccess(true)
+  }
+
+  const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setContactSuccess(true)
+  }
+
   return (
     <div className="min-h-screen bg-[#080810] text-white overflow-x-hidden">
       <nav
@@ -106,8 +122,8 @@ export default function LandingPage() {
                     key={i}
                     className="w-8 h-8 rounded-full border-2 border-[#080810]"
                     style={{ backgroundColor: c }}
-                    />
-                 ))}
+                  />
+                ))}
               </div>
               <span>50k+ fashion users</span>
             </div>
@@ -215,7 +231,7 @@ export default function LandingPage() {
           ).map(({ icon: Icon, key, color, badge }) => (
             <article key={key} className="glass-card rounded-2xl p-6 hover:border-white/20 transition-all group">
               <div
-              className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
               >
                 <Icon size={22} className="text-white" aria-hidden="true" />
               </div>
@@ -261,7 +277,7 @@ export default function LandingPage() {
           <p className="text-white/60 mb-8">
             Get early access to AI stylist upgrades, exclusive launches, and premium onboarding.
           </p>
-          <form className="grid gap-4 text-left">
+          <form className="grid gap-4 text-left" onSubmit={handleWaitlistSubmit}>
             <label className="sr-only" htmlFor="waitlist-name">
               Full Name
             </label>
@@ -291,6 +307,11 @@ export default function LandingPage() {
               Join Waitlist
               <ArrowRight size={20} aria-hidden="true" />
             </button>
+            {waitlistSuccess && (
+              <p className="text-sm text-green-300 text-center">
+                You are on the waitlist. We will reach out soon.
+              </p>
+            )}
           </form>
         </div>
       </section>
@@ -313,7 +334,7 @@ export default function LandingPage() {
               <span className="text-white/80 text-sm">+1 (555) 010-2026</span>
             </div>
           </div>
-          <form className="grid gap-4">
+          <form className="grid gap-4" onSubmit={handleContactSubmit}>
             <label className="sr-only" htmlFor="contact-name">
               Name
             </label>
@@ -354,6 +375,11 @@ export default function LandingPage() {
               Send Message
               <ArrowRight size={18} aria-hidden="true" />
             </button>
+            {contactSuccess && (
+              <p className="text-sm text-green-300 text-center">
+                Message sent. Our team will contact you shortly.
+              </p>
+            )}
           </form>
         </div>
       </section>

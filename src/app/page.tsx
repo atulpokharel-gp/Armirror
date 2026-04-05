@@ -19,15 +19,68 @@ import {
 export default function LandingPage() {
   const [waitlistSuccess, setWaitlistSuccess] = useState(false)
   const [contactSuccess, setContactSuccess] = useState(false)
+  const [waitlistError, setWaitlistError] = useState('')
+  const [contactError, setContactError] = useState('')
+  const [waitlistSubmitting, setWaitlistSubmitting] = useState(false)
+  const [contactSubmitting, setContactSubmitting] = useState(false)
 
-  const handleWaitlistSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setWaitlistSuccess(true)
+    setWaitlistSuccess(false)
+    setWaitlistError('')
+    setWaitlistSubmitting(true)
+    try {
+      const formData = new FormData(event.currentTarget)
+      const payload = {
+        name: String(formData.get('name') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+      }
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { error?: string } | null
+        throw new Error(data?.error ?? 'Could not join waitlist')
+      }
+      setWaitlistSuccess(true)
+      event.currentTarget.reset()
+    } catch (error) {
+      setWaitlistError(error instanceof Error ? error.message : 'Could not join waitlist')
+    } finally {
+      setWaitlistSubmitting(false)
+    }
   }
 
-  const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setContactSuccess(true)
+    setContactSuccess(false)
+    setContactError('')
+    setContactSubmitting(true)
+    try {
+      const formData = new FormData(event.currentTarget)
+      const payload = {
+        name: String(formData.get('name') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        message: String(formData.get('message') ?? '').trim(),
+      }
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { error?: string } | null
+        throw new Error(data?.error ?? 'Could not send message')
+      }
+      setContactSuccess(true)
+      event.currentTarget.reset()
+    } catch (error) {
+      setContactError(error instanceof Error ? error.message : 'Could not send message')
+    } finally {
+      setContactSubmitting(false)
+    }
   }
 
   return (
@@ -302,9 +355,10 @@ export default function LandingPage() {
             />
             <button
               type="submit"
+              disabled={waitlistSubmitting}
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-10 py-4 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all text-lg"
             >
-              Join Waitlist
+              {waitlistSubmitting ? 'Joining...' : 'Join Waitlist'}
               <ArrowRight size={20} aria-hidden="true" />
             </button>
             {waitlistSuccess && (
@@ -312,6 +366,7 @@ export default function LandingPage() {
                 You are on the waitlist. We will reach out soon.
               </p>
             )}
+            {waitlistError && <p className="text-sm text-red-300 text-center">{waitlistError}</p>}
           </form>
         </div>
       </section>
@@ -331,7 +386,7 @@ export default function LandingPage() {
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4 flex items-center gap-3">
               <Phone className="text-purple-300" size={18} aria-hidden="true" />
-              <span className="text-white/80 text-sm">+1 (555) 010-2026</span>
+              <span className="text-white/80 text-sm">+1 (555) 010-2042</span>
             </div>
           </div>
           <form className="grid gap-4" onSubmit={handleContactSubmit}>
@@ -370,9 +425,10 @@ export default function LandingPage() {
             />
             <button
               type="submit"
+              disabled={contactSubmitting}
               className="inline-flex items-center justify-center gap-2 border border-white/20 text-white hover:bg-white/5 font-semibold px-8 py-3 rounded-full transition-all"
             >
-              Send Message
+              {contactSubmitting ? 'Sending...' : 'Send Message'}
               <ArrowRight size={18} aria-hidden="true" />
             </button>
             {contactSuccess && (
@@ -380,6 +436,7 @@ export default function LandingPage() {
                 Message sent. Our team will contact you shortly.
               </p>
             )}
+            {contactError && <p className="text-sm text-red-300 text-center">{contactError}</p>}
           </form>
         </div>
       </section>

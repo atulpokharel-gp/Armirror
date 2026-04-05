@@ -37,3 +37,18 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Environment Variables
 
 See `.env.example` for all required variables.
+
+## CI/CD
+
+GitHub Actions runs CI on all pull requests and pushes to `main`:
+
+- `npm ci`
+- `npm run lint`
+- `npm run test` (only when test files exist)
+- `npm run build`
+
+Production deployment is automatic on pushes to `main` when these repository secrets are configured:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`

@@ -33,3 +33,37 @@ export function getInitials(name: string): string {
 export function randomBetween(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function isValidEmail(email: string): boolean {
+  if (typeof email !== "string") return false;
+  const normalized = email.trim();
+  if (!normalized || normalized.includes(" ")) return false;
+
+  const parts = normalized.split("@");
+  if (parts.length !== 2) return false;
+
+  const [local, domain] = parts;
+  if (!local || !domain) return false;
+  if (local.length > 64 || domain.length > 255) return false;
+  if (local.startsWith(".") || local.endsWith(".") || local.includes("..")) return false;
+  if (domain.startsWith(".") || domain.endsWith(".") || domain.includes("..")) return false;
+
+  const domainLabels = domain.split(".");
+  if (domainLabels.length < 2) return false;
+  if (domainLabels.some((label) => !label)) return false;
+
+  const allowedLocalChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+/=?^_`{|}~.-";
+  for (const char of local) {
+    if (!allowedLocalChars.includes(char)) return false;
+  }
+
+  const allowedDomainChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.";
+  for (const char of domain) {
+    if (!allowedDomainChars.includes(char)) return false;
+  }
+
+  const tld = domainLabels[domainLabels.length - 1];
+  if (tld.length < 2) return false;
+
+  return true;
+}

@@ -1,13 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { isValidEmail } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
-
-function isValidEmail(email: string) {
-  const atIndex = email.indexOf("@");
-  const dotIndex = email.lastIndexOf(".");
-  return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
-}
 
 export async function POST(request: Request) {
   try {

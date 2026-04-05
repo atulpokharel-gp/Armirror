@@ -137,20 +137,24 @@ class ActionExecutor:
         time.sleep(1.5)  # give the app a moment to open
 
     @staticmethod
-    def _close_app(app_name: str) -> None:
+    def _sanitize_applescript_string(value: str) -> str:
+        """Escape a string for safe embedding inside an AppleScript double-quoted string."""
+        return value.replace("\\", "\\\\").replace('"', '\\"')
+
+    def _close_app(self, app_name: str) -> None:
         """Close an application by name (best-effort, Linux/macOS)."""
         if not app_name:
             return
         import sys
 
         if sys.platform == "darwin":
-            subprocess.call(["osascript", "-e", f'quit app "{app_name}"'])
+            safe_name = self._sanitize_applescript_string(app_name)
+            subprocess.call(["osascript", "-e", f'quit app "{safe_name}"'])
         elif sys.platform.startswith("linux"):
             subprocess.call(["pkill", "-f", app_name])
         # Windows: not implemented — would need win32api
 
-    @staticmethod
-    def _focus_window(window_title: str) -> None:
+    def _focus_window(self, window_title: str) -> None:
         """Attempt to bring a window to focus by title (Linux/macOS)."""
         if not window_title:
             return
@@ -165,9 +169,8 @@ class ActionExecutor:
             except Exception:  # noqa: BLE001
                 pass
         elif sys.platform == "darwin":
-            script = (
-                f'tell application "{window_title}" to activate'
-            )
+            safe_title = self._sanitize_applescript_string(window_title)
+            script = f'tell application "{safe_title}" to activate'
             try:
                 subprocess.call(["osascript", "-e", script], timeout=3)
             except Exception:  # noqa: BLE001

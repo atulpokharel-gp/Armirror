@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Optional
-
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -17,6 +15,7 @@ class MomoBotSettings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_prefix="MOMOBOT_",
+        populate_by_name=True,
         env_file=(".env", ".env.local"),
         extra="ignore",
     )
@@ -51,9 +50,3 @@ class MomoBotSettings(BaseSettings):
 
     def get_authorized_apps(self) -> list[str]:
         return [a.strip() for a in self.authorized_apps.split(",") if a.strip()]
-
-    model_config = SettingsConfigDict(
-        populate_by_name=True,
-        env_file=(".env", ".env.local"),
-        extra="ignore",
-    )

@@ -49,6 +49,15 @@ def _get_active_window_linux() -> Optional[WindowInfo]:
         return None
 
 
+def _sanitize_applescript_string(value: str) -> str:
+    """Escape a string for safe embedding inside an AppleScript double-quoted string.
+
+    AppleScript strings are delimited by double quotes; we escape any embedded
+    double-quote or backslash to prevent injection.
+    """
+    return value.replace("\\", "\\\\").replace('"', '\\"')
+
+
 def _get_active_window_macos() -> Optional[WindowInfo]:
     """Use AppleScript on macOS to get the frontmost app and window title."""
     try:
@@ -62,9 +71,8 @@ def _get_active_window_macos() -> Optional[WindowInfo]:
             timeout=3,
         ).decode().strip()
 
-        title_script = (
-            f'tell application "{app_name}" to get name of front window'
-        )
+        safe_app = _sanitize_applescript_string(app_name)
+        title_script = f'tell application "{safe_app}" to get name of front window'
         try:
             title = subprocess.check_output(
                 ["osascript", "-e", title_script],

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Providers } from '@/components/providers'
 
@@ -39,6 +40,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   )

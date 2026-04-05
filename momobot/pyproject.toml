@@ -1,0 +1,79 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "momobot"
+version = "0.1.0"
+description = "MomoBot — a living multimodal local agent that observes, decides, executes, verifies, and learns across the full authorized computing environment."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Armirror" }]
+
+dependencies = [
+    # Core async & validation
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    # Screen capture & image processing
+    "mss>=9.0",
+    "Pillow>=10.3",
+    # Mouse & keyboard control
+    "pyautogui>=0.9.54",
+    # System metrics
+    "psutil>=5.9",
+    # LLM backend (Anthropic Claude — already used in the project)
+    "anthropic>=0.28",
+    # OpenAI (used by mirfish; reused here for Whisper/embeddings)
+    "openai>=1.35",
+    # Optional audio capture
+    "sounddevice>=0.4.6",
+    "soundfile>=0.12",
+    # Optional camera input
+    "opencv-python-headless>=4.9",
+    # OCR (offline fallback)
+    "pytesseract>=0.3.13",
+    # Window / platform info
+    "pygetwindow>=0.0.9; sys_platform == 'win32'",
+    "ewmh>=0.1.6; sys_platform == 'linux'",
+    "pyobjc-framework-Quartz>=10.3; sys_platform == 'darwin'",
+    # Storage: vector + SQLite
+    "qdrant-client>=1.9",
+    "aiosqlite>=0.20",
+    # Async utilities
+    "anyio>=4.4",
+    "tenacity>=8.3",
+    # CLI
+    "typer[all]>=0.12",
+    "rich>=13.7",
+    # HTTP
+    "httpx>=0.27",
+    # numpy (shared with CV)
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+whisper = [
+    "openai-whisper>=20231117",
+    "torch>=2.2",
+]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "pytest-mock>=3.14",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+momobot = "momobot.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["momobot"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

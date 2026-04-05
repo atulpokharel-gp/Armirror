@@ -7,16 +7,25 @@
     "getStarted": "Get Started"
   },
   "hero": {
-    "badge": "AI-Powered Fashion Try-On",
-    "title": "Try On Fashion",
-    "titleAccent": "Before You Buy",
-    "description": "StyleMirror AR uses AI to create your personalized body model, analyze your skin tone, and let you virtually try on thousands of garments in augmented reality.",
+    "badge": "Premium AI Styling Experience",
+    "title": "Own Every",
+    "titleAccent": "Going-Out Moment",
+    "description": "From wardrobe confusion to confident outfits, StyleMirror AR helps you choose what to wear based on weather, season, skin tone, and your personal style.",
     "ctaPrimary": "Start for Free",
     "ctaSecondary": "Live Demo",
     "socialProof": {
       "users": "50k+ users",
       "rating": "4.9/5 rating"
     }
+  },
+  "story": {
+    "badge": "Founders' Story",
+    "heading": "Two friends built this for fashion lovers",
+    "description": "StyleMirror AR began when two friends kept asking the same question before every outing: “What do I have in my wardrobe, and what should I wear today?” They turned that daily struggle into a premium styling platform.",
+    "problemTitle": "The everyday problem",
+    "problemDescription": "You want to go out, but choosing an outfit feels hard: you forget what is in your wardrobe, weather keeps changing, seasons demand different layers, and not every color flatters every skin tone.",
+    "solutionTitle": "The premium solution",
+    "solutionDescription": "StyleMirror AR maps your wardrobe, understands weather and season, and recommends skin-tone matched looks so you step out quickly, confidently, and in style."
   },
   "features": {
     "heading": "Fashion intelligence",

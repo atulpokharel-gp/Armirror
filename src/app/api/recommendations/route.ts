@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { generateRecommendations } from "@/lib/ai/recommendations";
 
+export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   try {
     const session = await getServerSession(authOptions);

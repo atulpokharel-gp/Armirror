@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { getStylistResponse, StylistMessage } from "@/lib/ai/stylist-agent";
 
+export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions);

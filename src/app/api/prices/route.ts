@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
 const MOCK_PRICES = [
   { storeName: "Nordstrom", price: 285, originalPrice: 380, discount: 25, inStock: true, url: "#", shipping: "Free shipping" },
   { storeName: "Net-a-Porter", price: 299, originalPrice: 299, discount: 0, inStock: true, url: "#", shipping: "Free over $200" },

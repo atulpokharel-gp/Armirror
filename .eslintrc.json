@@ -18,5 +18,5 @@
       { "checksVoidReturn": { "attributes": false } }
     ]
   },
-  "ignorePatterns": ["node_modules/", ".next/", "drizzle/"]
+  "ignorePatterns": ["node_modules/", ".next/", "drizzle/", "postcss.config.js"]
 }

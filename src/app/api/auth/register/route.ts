@@ -52,7 +52,8 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ user }, { status: 201 });
   } catch (error) {
-    console.error("POST /api/auth/register error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("POST /api/auth/register error:", errorMessage);
     return NextResponse.json({ message: "Internal server error" }, { status: 500 });
   }
 }

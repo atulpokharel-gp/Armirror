@@ -17,7 +17,9 @@ function hasDialogTitle(children: React.ReactNode): boolean {
   return React.Children.toArray(children).some((child) => {
     if (!React.isValidElement(child)) return false;
     const typed = child as React.ReactElement<{ children?: React.ReactNode }, React.ElementType>;
-    if (typed.type === DialogTitle) return true;
+    const type = typed.type as { displayName?: string; name?: string };
+    const elementName = type.displayName ?? type.name;
+    if (elementName === DialogPrimitive.Title.displayName) return true;
     return hasDialogTitle(typed.props?.children);
   });
 }
